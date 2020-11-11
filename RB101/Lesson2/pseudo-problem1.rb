@@ -1,4 +1,8 @@
-# Given two integers
+START
 
-# save sum of two given integers
-# return the sum
+SET X = integer
+SET Y = integer
+SET answer = X + Y
+RETURN answer
+
+END

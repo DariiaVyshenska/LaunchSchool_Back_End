@@ -3,7 +3,7 @@ en:
   loan_amount_message: "Please, enter your loan amount:"
   error_general: "Error! Please, enter an non-negative number."
   error_apr: "Error! Please, enter an non-negative number. Example: enter 5 for 5% APR"
-  apr_message: "Please, enter your Annual Percentage Rate (for example, use 5 for 5% APR):"
+  apr_message: "Please, enter your Annual Percentage Rate (for example, use 5.4 for 5.4% APR):"
   duar_years_message: "Please, enter number of years of loan duaration:"
   duar_months_message: "Please, enter additional number of months of loan duaration (if applicable, otherwise enter 0):"
   result_message: "Your results are:"

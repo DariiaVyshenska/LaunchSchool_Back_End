@@ -11,7 +11,7 @@ def prompt(key)
 end
 
 def num_prompt(f)
-  puts ">>    #{f.round(2)}"
+  puts ">>    #{format('%.2f', f)}"
 end
 
 def integer?(i)
@@ -38,7 +38,7 @@ loop do # main loop
   loop do
     prompt 'loan_amount_message'
     loan_amount = gets.chomp
-    if number?(loan_amount)
+    if number?(loan_amount) && loan_amount.to_f >= 0
       break loan_amount = loan_amount.to_f
     else
       prompt 'error_general'
@@ -49,7 +49,7 @@ loop do # main loop
   loop do
     prompt 'apr_message'
     apr = gets.chomp
-    if number?(apr)
+    if number?(apr) && apr.to_f >= 0
       break apr = apr.to_f
     else
       prompt 'error_apr'
@@ -60,7 +60,7 @@ loop do # main loop
   loop do
     prompt 'duar_years_message'
     duar_years = gets.chomp
-    if number?(duar_years)
+    if number?(duar_years) && duar_years.to_f >= 0
       break duar_years = duar_years.to_f
     else
       prompt 'error_general'
@@ -71,7 +71,7 @@ loop do # main loop
   loop do
     prompt 'duar_months_message'
     duar_months = gets.chomp
-    if number?(duar_months)
+    if number?(duar_months) && duar_months.to_f >= 0
       break duar_months = duar_months.to_f
     else
       prompt 'error_general'

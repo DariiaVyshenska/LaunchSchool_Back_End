@@ -1,0 +1,52 @@
+1)
+1
+2
+2
+3
+
+2)
+  1. what is != and where should you use it?
+    it's an instance method of the Object Class that is used to compare two objects.
+    If objects are not equal it outputs true, if they are equal it outputs false
+  2. put ! before something, like !user_name
+    it should output 'false' if user_name exists and error if user_name does not
+    exist
+  3. put ! after something, like words.uniq!
+    here '!' is part of the name of existing method (someone created a method, 
+    named it uniq!). It is commonly accepted to use ! in methods names to signal
+    that this method mutates the caller
+  4. put ? before something
+    if ? is put before variable I'm getting the name of the variable as a string
+    (independently wether a variable exist or not)
+  5. put ? after something
+    '?' in the end of the method name usually indicates that the method tests
+    some something (if variable is of certain type etc.) and outputs true, false,
+    or nil. However, this is not mandatory and depends on the creator of the 
+    method to follow this convention
+    Also, ? can be used as a ternary operator and will have to be followed by
+    the choices like this 'choice1':'choice2'. It will output choice1 if the
+    expression before '?' evaluates to true, and 'choice2' when false
+  6. put !! before something, like !!user_name
+    this is double negation. If I have an existing object it evaluates to true.
+    if I put ! before it it will negate true and output false. If I put '!!' 
+    than it is a double negation and will output true.
+    
+3)
+  advice.gsub!('important', 'urgent')
+4)
+  numbers.delete_at(1)  # will delete an element at index == 1
+                        # will return 1, and will change number == [1, 3, 4, 5]
+  numbers.delete(1)     # will delete all elements that == 1
+                        # will return 1, and will change numbers == [2, 3, 4, 5]
+5)
+  (10..100).to_a.cover?(42)
+  (10..100).to_a.include?(42)
+6)
+  "Four score and #{famous_words}"
+  "Four score and " + famous_words
+  "Four score and " << famous_words
+7)
+  flintstones.flatten!
+8)
+  flintstones.assoc("Barney")
+  flintstones.delete_if { |k, _| k != "Barney"}.to_a.flatten

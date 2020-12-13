@@ -1,0 +1,37 @@
+1)
+  when you initialize a variable in the if statement the variable is getting 
+  assigned even if 'if' statement is not executed (in this case it assignes to
+  nil)
+2) 
+  {:a=>"hi there"}
+3)
+  A:
+  one is: one
+  two is: two
+  three is: three
+  
+  B:
+  one is: one
+  two is: two
+  three is: three
+  
+  Both A and B do not change outer scope variables because we do reassignment
+  inside of the method (which does not impact outer scope variables)
+  
+  C:
+  one is: two
+  two is: three
+  three is: one
+  Because gsub! method mutates the caller and if we call it on a variable inside
+  of the method when that variable points to the value created in the outer scope
+  then we mutate the original varaible (that is in the outer scope)
+4)
+  def dot_separated_ip_address?(input_string)
+    dot_separated_words = input_string.split(".")
+    return false if dot_separated_words.size != 4
+    while dot_separated_words.size > 0 do
+      word = dot_separated_words.pop
+      return false unless is_an_ip_number?(word)
+    end
+    true
+  end

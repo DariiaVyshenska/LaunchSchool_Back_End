@@ -1,13 +1,13 @@
 require 'yaml'
 
-VALID_CHOICES = %w(r p sc sp l)
-WIN_RULES_HASH = {
-  'r' => %w(l sc),
-  'p' => %w(r sp),
-  'sc' => %w(p l),
-  'sp' => %w(sc r),
-  'l' => %(sp p)
+MOVES_INFO_HASH = {
+  'r' => {full_name: 'rock', wins_over: %w(l sc)},
+  'p' => {full_name: 'paper', wins_over: %w(r sp)},
+  'sc' => {full_name: 'scissors', wins_over: %w(p l)},
+  'sp' => {full_name: 'Spock', wins_over: %w(sc r)},
+  'l' => {full_name: 'lizard', wins_over: %w(sp p)}
 }
+
 LANGUAGE = 'en'
 MESSAGES = YAML.load_file("bonus_rps.yml")
 
@@ -31,17 +31,15 @@ def get_user_choice
     prompt('ask_to_choose')
     choice = gets.chomp
 
-    if VALID_CHOICES.include?(choice)
-      break choice
-    else
-      prompt('not_valid_error')
-      prompt('instruction')
-    end
+    break choice if MOVES_INFO_HASH.keys.include?(choice)
+    
+    prompt('not_valid_error')
+    prompt('instruction')
   end
 end
 
 def win?(first, second)
-  WIN_RULES_HASH[first].include?(second)
+  MOVES_INFO_HASH[first][:wins_over].include?(second)
 end
 
 def who_won_battle?(user_choice, computer_choice)
@@ -75,8 +73,8 @@ end
 def display_choices(user_choice, computer_choice, battle_number)
   clear
   prompt('battle_number', battle_number.to_s)
-  prompt('user_choice', user_choice)
-  prompt('comp_choice', computer_choice)
+  prompt('user_choice', MOVES_INFO_HASH[user_choice][:full_name])
+  prompt('comp_choice', MOVES_INFO_HASH[computer_choice][:full_name])
 end
 
 def display_score(round_score)
@@ -124,7 +122,7 @@ def play_round
   loop do
     prompt('instruction')
     user_choice = get_user_choice
-    computer_choice = VALID_CHOICES.sample
+    computer_choice = MOVES_INFO_HASH.keys.sample
     winner = who_won_battle?(user_choice, computer_choice)
     update_score(round_score, winner)
     battle += 1

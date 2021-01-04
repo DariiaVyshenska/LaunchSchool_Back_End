@@ -1,0 +1,69 @@
+1) 
+Solution 1:
+hsh = Hash.new
+flintstones.each_with_index {|value, count| hsh[value] = count}
+Solution 2:
+flintstones.each_with_object({}) {|value, obj| obj[value] = flintstones.index(value)}
+
+2)
+Solution 1:
+ages.values.sum
+Solution 2:
+ages.values.reduce(:+)
+
+3)
+Solution 1:
+ages.delete_if { |_, value| value >= 100 }
+Solution 2:
+ages.select! { |_, v| v < 100 }
+
+4)
+Solution 1:
+ages.values.min
+Solution 2:
+min_val = ages.values[0]
+ages.values.each {|v| min_val = v if v < min_val}
+min_val
+
+5)
+Solution 1:
+flintstones.find_index { |item| item.start_with?("Be")}
+Solution 2:
+flintstones.each_with_index {|x, i| puts i if x.start_with?("Be")}
+
+6)
+Solution 1:
+flintstones.map! {|i| i[0,3]}
+
+7)
+Solution 1:
+statement.chars.each_with_object(Hash.new(0)) {|i, hsh| hsh[i] +=1 if i != ' '}
+Solution 2:
+Hash.new(0)
+statement.chars.uniq.each {|i| hsh[i] = statement.count(i) if i != ' '}
+
+8)
+it will mess up the output. 
+1
+3
+and
+1
+2
+
+9)
+def my_titleize(words)
+  words.split(' ').map { |word| word.capitalize }.join(' ')
+end
+
+10)
+munsters.each do |name,info|
+  group =
+    case info["age"]
+    when 0..17 then 'kid'
+    when 18..64 then 'adult'
+    when 65.. then 'senior'
+    end
+  munsters[name]['age_group'] = group
+end
+
+

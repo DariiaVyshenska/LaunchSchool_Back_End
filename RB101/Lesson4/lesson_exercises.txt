@@ -1,0 +1,50 @@
+1) Collection basics
+  str.lines(separator=' ').join
+  str.split.join(" ")
+  
+  str[6] = 'F'
+  str[15] = 'C'
+  str[21] = 'I'
+  str[24] = 'B'
+  
+7) Selection and Transformation
+  def select_fruit(in_hash)
+    sel_value = 'Fruit'
+    out_hash = Hash.new
+    
+    for k in in_hash.keys do
+      if in_hash[k] == sel_value
+        out_hash[k] = in_hash[k]
+      end
+    end
+    out_hash
+  end
+  
+  
+  def double_numbers!(numbers)
+    counter = 0
+    loop do
+      break if counter == numbers.size
+  
+      current_number = numbers.shift
+      numbers << current_number * 2
+  
+      counter += 1
+    end
+  
+    numbers
+  end
+  
+  def multiply!(num_array, multiplier)
+    counter = 0
+    loop do
+      break if counter == num_array.size
+      num_array[counter] *= multiplier
+      counter += 1
+    end
+    num_array
+  end
+  
+  
+  
+  

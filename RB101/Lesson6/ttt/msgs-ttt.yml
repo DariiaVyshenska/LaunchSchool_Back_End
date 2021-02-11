@@ -1,0 +1,16 @@
+major_separator_line: '##############################################'
+welcome: 'WELCOME TO TIC TAC TOE!'
+rounds_req_to_win: 'Number of round wins required to win the game:'
+press_enter: 'Press ENTER to continue'
+minor_separator_line: '_______________________'
+who_goes_first_msg: "Please, select who makes the first move:\n
+\t~ for player, type 'p';\n
+\t~ for computer, type 'c'"
+score: 'SCORE'
+player_vs_comp: 'Player vs Computer'
+won: 'WON!'
+tie_msg: "It's a tie!"
+not_valid_msg: "Sorry, that's not a valid choice"
+play_again_msg: 'play again? (y or n)'
+bye_msg: 'Thanks for playing Tic Tac Toe! Good bye!'
+test: "some text... i insert a value here -> #{ROUND_WINS}"

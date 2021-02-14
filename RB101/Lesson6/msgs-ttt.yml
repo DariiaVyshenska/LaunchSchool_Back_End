@@ -12,4 +12,3 @@ tie_msg: "It's a tie!"
 not_valid_msg: "Sorry, that's not a valid choice"
 play_again_msg: 'play again? (y or n)'
 bye_msg: 'Thanks for playing Tic Tac Toe! Good bye!'
-test: "some text... i insert a value here -> #{ROUND_WINS}"

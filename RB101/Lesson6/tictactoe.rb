@@ -11,8 +11,8 @@ WINNING_LINES = [
 ]
 WHO_GOES_FIRST = 'choose'
 BOARD_CENTER = 5
-MESSAGES = YAML.load_file('./msgs-ttt.yml')
 CENTERED_LEN = 45
+MESSAGES = YAML.load_file('./msgs-ttt.yml')
 
 def prompt(msg)
   puts "=> #{msg}"
@@ -76,7 +76,7 @@ def display_game_results(score, winner)
 
   display_centered_msg(MESSAGES['score'], CENTERED_LEN)
   display_centered_msg(MESSAGES['player_vs_comp'], CENTERED_LEN)
-  display_centered_msg("#{score['player']}:#{score['computer']}", FINAL_MSGS_SI)
+  display_centered_msg("#{score['player']}:#{score['computer']}", CENTERED_LEN)
   display_centered_msg(MESSAGES['minor_separator_line'], CENTERED_LEN)
   display_centered_msg("#{winner.upcase} #{MESSAGES['won']}", CENTERED_LEN)
 end

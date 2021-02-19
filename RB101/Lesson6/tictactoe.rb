@@ -42,11 +42,15 @@ def display_game_start
   gets
 end
 
-# rubocop:disable Metrics/AbcSize, Metrics/MethodLength
-def display_board(brd, round, score)
+def display_current_round_info(round, score)
   prompt "ROUND #{round}."
   prompt "SCORE Player #{score['player']}:#{score['computer']} Computer"
   prompt "You're #{PLAYER_MARKER}. Computer is #{COMPUTER_MARKER}."
+end
+
+# rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+def display_board(brd, round, score)
+  display_current_round_info(round, score)
   puts ""
   puts "     |     |"
   puts "  #{brd[1]}  |  #{brd[2]}  |  #{brd[3]}"
@@ -151,6 +155,8 @@ def detect_critical_idx(brd, marker)
       danger_location << line[brd.values_at(*line).index(INITIAL_MARKER)]
     end
   end
+  return nil if danger_location.empty?
+
   danger_location.sample
 end
 
@@ -175,15 +181,17 @@ def player_places_piece!(brd)
   brd[square.to_i] = PLAYER_MARKER
 end
 
+def middle_square(brd)
+  return BOARD_CENTER if empty_squares(brd).include?(BOARD_CENTER)
+
+  nil
+end
+
 def computer_places_piece!(brd)
-  square = if !!detect_critical_idx(brd, COMPUTER_MARKER)
-             detect_critical_idx(brd, COMPUTER_MARKER)
-           elsif !!detect_critical_idx(brd, PLAYER_MARKER)
-             detect_critical_idx(brd, PLAYER_MARKER)
-           elsif empty_squares(brd).include?(BOARD_CENTER)
-             BOARD_CENTER
-           else empty_squares(brd).sample
-           end
+  square = detect_critical_idx(brd, COMPUTER_MARKER) ||
+           detect_critical_idx(brd, PLAYER_MARKER) ||
+           middle_square(brd) ||
+           empty_squares(brd).sample
   brd[square] = COMPUTER_MARKER
 end
 

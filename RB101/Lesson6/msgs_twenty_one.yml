@@ -1,0 +1,20 @@
+hit_or_stay: "Type 'h' for a hit or 's' for stay:"
+invalid_entry_errmsg: 'Sorry, invalid answer! Try again.'
+end_round_message: 'ROUND RESULTS:'
+welcome: 'WELCOME to the TWENTY-ONE GAME!'
+short_sep: '---------------------------------'
+winning_threshold: 'Winning score:'
+participants_are: 'Participants:'
+hit_to_continue: 'Press ENTER to continue'
+cards_info: 'CARDS:'
+score_info: 'SCORE:'
+hide_card: 'an unknown card'
+player_moves: 'PLAYER MOVES'
+busted: 'is BUSTED!'
+is_winner: 'is the WINNER!'
+tie: "It's a TIE!"
+play_again_msg: "Press 'y' to play again, 'n' to quit:"
+not_valid_msg: "Sorry, that's not a valid choice"
+round_info: 'ROUND:'
+num_of_wins: 'Number of ROUNDS to win a game:'
+game_results: 'END of the GAME'

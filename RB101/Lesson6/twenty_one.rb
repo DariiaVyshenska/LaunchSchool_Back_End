@@ -2,7 +2,6 @@ require 'yaml'
 
 MESSAGES = YAML.load_file('./msgs_twenty_one.yml')
 WIN_THRESHOLD = 21
-
 JQK_WORTH = 10
 ACE_SINGLE_WORTH = 11
 ACE_MULT = 1

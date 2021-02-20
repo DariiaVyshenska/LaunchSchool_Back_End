@@ -151,7 +151,6 @@ def play_one_round(game_score, round)
   winner = winner?(score)
   game_score[winner] += 1 if winner
   display_round_results(hands, score, winner, round)
-  nil
 end
 
 def play_one_game
@@ -190,10 +189,15 @@ end
 def pause_for_user
   prompt MESSAGES['hit_to_continue']
   gets
+  nil
 end
 
 def prompt(msg)
   puts "=> #{msg}"
+end
+
+def display_empty_line
+  puts ''
 end
 
 def display_busted(player, score, hands, round)
@@ -246,11 +250,11 @@ def display_move_header(hands, score, round)
   system 'clear'
 
   display_round(round)
-  puts ''
+  display_empty_line
   display_cards_dealer_hidden(hands)
-  puts ''
+  display_empty_line
   display_player_score(score)
-  puts ''
+  display_empty_line
 end
 
 def display_all_cards(hands)
@@ -269,11 +273,11 @@ end
 
 def display_move_header_fullinfo(hands, score, round)
   display_round(round)
-  puts ''
+  display_empty_line
   display_all_cards(hands)
-  puts ''
+  display_empty_line
   display_all_score(score)
-  puts ''
+  display_empty_line
 end
 
 def round_winner_msg(winner)
@@ -290,7 +294,7 @@ def display_round_results(hands, score, winner, round)
   display_move_header_fullinfo(hands, score, round)
   display_center_msg(MESSAGES['short_sep'])
   display_center_msg(MESSAGES['end_round_message'])
-  puts ''
+  display_empty_line
   display_center_msg(round_winner_msg(winner))
   display_center_msg(MESSAGES['short_sep'])
   pause_for_user

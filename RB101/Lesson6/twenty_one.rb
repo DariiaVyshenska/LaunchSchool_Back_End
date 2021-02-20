@@ -304,7 +304,7 @@ def display_game_results(game_winner)
 
   display_center_msg(MESSAGES['short_sep'])
   display_center_msg(MESSAGES['game_results'])
-  puts
+  display_empty_line
   display_center_msg("#{game_winner} #{MESSAGES['is_winner']}")
   display_center_msg(MESSAGES['short_sep'])
 end
